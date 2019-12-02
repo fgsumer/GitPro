@@ -1,31 +1,46 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+import http from 'http';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import initializeDb from './db';
+import middleware from './middleware';
+import api from './api';
+import config from './config.json';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
-require('dotenv').config();
+app.server = http.createServer(app);
 
-app.use(cors());
-app.use(express.json());
+// logger
+app.use(morgan('dev'));
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true });
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log('MangoDB database connection established successfully');
+// 3rd party middleware
+app.use(
+  cors({
+    exposedHeaders: config.corsHeaders,
+  }),
+);
+
+app.use(
+  bodyParser.json({
+    limit: config.bodyLimit,
+  }),
+);
+
+// connect to db
+initializeDb(db => {
+  // internal middleware
+  app.use(middleware({ config, db }));
+
+  // api router
+  app.use('/api', api({ config, db }));
+
+  app.server.listen(process.env.PORT || config.port, () => {
+    console.log(`Started on port ${app.server.address().port}`);
+  });
 });
 
-const exercisesRouter = require('./routes/exercises');
-const usersRouter = require('./routes/users');
-
-app.use('/exercises', exercisesRouter);
-app.use('/users', usersRouter);
-
-// console.log that your server is up and running
-app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// create a GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
+export default app;

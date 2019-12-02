@@ -4,9 +4,10 @@
   "description": "Starter project for an ES6 RESTful Express API",
   "main": "dist",
   "scripts": {
-    "dev": "nodemon -w src --exec \"babel-node src --presets '@babel/env'\"",
+    "dev": "nodemon -w src --exec \"babel-node src\"",
     "build": "babel src -s -D -d dist",
-    "start": "node dist",
+    "heroku-postbuild": "babel src -s -D -d dist --prod",
+    "start": "node dist/server.js",
     "prestart": "npm run -s build",
     "lint": "eslint src",
     "db": "scripts/start_db.sh",
@@ -27,6 +28,9 @@
     }
   },
   "repository": "developit/express-es6-rest-api",
+  "keywords": [
+    "heroku"
+  ],
   "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
   "dependencies": {
@@ -51,5 +55,8 @@
     "eslint-plugin-jest": "^23.0.5",
     "jest-junit": "^9.0.0",
     "nodemon": "^1.9.2"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }
