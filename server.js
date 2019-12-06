@@ -19,5 +19,14 @@ connection.once('open', () => {
 const rootRouter = require('./routes/root');
 app.use('/', rootRouter);
 
+// Adding the route to the server
+const personalRouter = require('./routes/personal');
+app.use('/personal', personalRouter);
+
+const certificateRouter = require('./routes/certificate');
+app.use('/certificate', certificateRouter);
+
+
+
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
