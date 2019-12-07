@@ -38,9 +38,9 @@ jobs:
       - attach_workspace:
           at: ~/project/
       - run: mkdir -p reports/
-      - run: npm lint
+      - run: yarn lint
       - run:
-          command: npm test --ci --runInBand --reporters=default --reporters=jest-junit
+          command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
             JEST_JUNIT_OUTPUT_DIR: reports/junit
           name: Run tests with JUnit as reporter
@@ -52,7 +52,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project/
-      - run: npm build
+      - run: yarn build
       - persist_to_workspace:
           paths:
             - frontend/
@@ -67,7 +67,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project/
-      - run: npm firebase deploy --token "$FIREBASE_TOKEN"
+      - run: yarn firebase deploy --token "$FIREBASE_TOKEN"
 
   ## ----------------
   ##  backend jobs ##
@@ -85,7 +85,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run: yarn install
       - persist_to_workspace:
           paths:
             - backend/heroku-connector/
@@ -102,7 +102,7 @@ jobs:
       - attach_workspace:
           at: ~/project/
       - run: mkdir -p reports/
-      - run: npm lint
+      - run: yarn lint
       - run:
           command: yarn test --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
@@ -116,7 +116,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project/
-      - run: npm build
+      - run: yarn build
       - persist_to_workspace:
           paths:
             - backend/heroku-connector/
