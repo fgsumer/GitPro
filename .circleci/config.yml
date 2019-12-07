@@ -74,7 +74,7 @@ jobs:
   ## ----------------
   backend_install:
     executor: node
-    working_directory: ~/project/backend/heroku-connector
+    working_directory: ~/project/backend
     steps:
       - checkout:
           path: ~/project
@@ -88,7 +88,7 @@ jobs:
       - run: yarn install
       - persist_to_workspace:
           paths:
-            - backend/heroku-connector/
+            - backend/
           root: ~/project
       - save_cache:
           paths:
@@ -97,7 +97,7 @@ jobs:
 
   backend_test:
     executor: node
-    working_directory: ~/project/backend/heroku-connector
+    working_directory: ~/project/backend
     steps:
       - attach_workspace:
           at: ~/project/
@@ -112,14 +112,14 @@ jobs:
           path: reports/
   backend_build:
     executor: node
-    working_directory: ~/project/backend/heroku-connector/
+    working_directory: ~/project/backend/
     steps:
       - attach_workspace:
           at: ~/project/
       - run: yarn build
       - persist_to_workspace:
           paths:
-            - backend/heroku-connector/
+            - backend/
           root: ~/project
       # https://circleci.com/docs/2.0/configuration-reference/#store_artifacts
       # not needed because we manage the deployment artifacts on the firebase side
