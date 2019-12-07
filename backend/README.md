@@ -1,10 +1,10 @@
-# node-js-getting-started
+# node-js-getting-started (for the first time to study)
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
 This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
 
-## Running Locally
+## Running Locally (for the first time to study)
 
 Make sure you have [Node.js](http://nodejs.org/) and the [Heroku CLI](https://cli.heroku.com/) installed.
 
@@ -17,9 +17,31 @@ $ npm start
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## Running on local server to test
+## Very Important Check before all (remote)
+
+Go to /backend folder and then:
 
 ```
+$ git remote -v
+
+```
+
+This command must give this result:
+
+```
+heroku https://git.heroku.com/fierce-depths-02024.git (fetch)
+heroku https://git.heroku.com/fierce-depths-02024.git (push)
+origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (fetch)
+origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (push)
+
+```
+
+Otherwise change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) and [origin remote](https://stackoverflow.com/questions/22694294/reconnect-remote-origin)
+
+## Running heroku on local server to test
+
+```
+$ npm install
 $ heroku local
 
 ```
