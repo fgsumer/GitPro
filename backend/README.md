@@ -17,6 +17,10 @@ $ npm start
 
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
+## Installing to Heroku cli (If not installed on your pc, firstly install it)
+
+Here you can find [the link to install the heroku cli](https://devcenter.heroku.com/categories/command-line)
+
 ## Very Important Check before all (remote)
 
 Go to /backend folder and then:
@@ -49,6 +53,8 @@ $ heroku local
 Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Deploying to Heroku
+
+**Note:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
 
 ```
 $ git add .
