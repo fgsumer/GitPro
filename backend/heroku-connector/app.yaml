@@ -1,0 +1,3 @@
+runtime: nodejs10
+# we model each team as a service instead of each team getting its own project. Simply saving overhead here
+service: lazyvariable
