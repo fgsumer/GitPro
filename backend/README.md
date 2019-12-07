@@ -54,7 +54,7 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 
 ## Deploying to Heroku
 
-**Note:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
+**NOTE:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
 
 ```
 $ git add .
@@ -63,7 +63,7 @@ $ git push heroku master
 $ heroku open
 ```
 
-Your app should now be running on server with the name of your app [fierce-depths-02024](https://fierce-depths-02024.herokuapp.com/express_backend).
+Your app should now be running on server with the name of your app [fierce-depths-02024](https://fierce-depths-02024.herokuapp.com/).
 
 or
 
