@@ -40,7 +40,8 @@ origin git@github.com:HackYourFutureBelgium/class-5-project-lazyvariable.git (pu
 
 ```
 
-Otherwise change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) and [origin remote](https://stackoverflow.com/questions/22694294/reconnect-remote-origin)
+Otherwise change [the heroku remote](https://stackoverflow.com/questions/6226846/how-to-change-a-git-remote-on-heroku) (\$ heroku git:remote -a fierce-depths-02024
+) and [origin remote](https://stackoverflow.com/questions/22694294/reconnect-remote-origin)
 
 ## Running heroku on local server to test
 
@@ -55,6 +56,8 @@ Your app should now be running on [localhost:5000](http://localhost:5000/).
 ## Deploying to Heroku
 
 **NOTE:** While trying to deploy changes to heroku, firstly cli redirects you to browser and requires you to login to heroku with your e-mail. After logging in:
+
+**ONLY IF YOU HAVE CHANGED ANYTHING ON BACKEND FOLDER DO THIS '$ GIT PUSH HEROKU MASTER', OTHERWISE YOU CAN JUST MAKE '$ HEROKU OPEN':**
 
 ```
 $ git add .

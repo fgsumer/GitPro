@@ -38,9 +38,9 @@ app
   .listen(port, () => console.log(`Listening on port ${port}`)); // console.log that your server is up and running
 
 // create another GET route
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
+//app.get('/express_backend', (req, res) => {
+//  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+//});
 
 // showTimes = () => {
 //   let result = '';
