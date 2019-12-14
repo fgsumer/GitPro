@@ -21,14 +21,15 @@ const userRouter = require('./routes/createUser'); // to register
 app.use('/user', userRouter);
 
 const authRouter = require('./routes/loginUser'); // to login
-app.use('/auth', authRouter);
+app.use('/login', authRouter);
+
+
 
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
 
 // Adding the route to the server
-const personalRouter = require('./routes/personal');
-app.use('/personal', personalRouter);
+
 
 // const certificateRouter = require('./routes/certificate');
 // app.use('/certificate', certificateRouter);
