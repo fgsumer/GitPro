@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+const routes = require('./routes')
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,11 +18,10 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
-const userRouter = require('./routes/createUser'); // to register
-app.use('/user', userRouter);
 
-const authRouter = require('./routes/loginUser'); // to login
-app.use('/auth', authRouter);
+
+app.use(routes)
+
 
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
