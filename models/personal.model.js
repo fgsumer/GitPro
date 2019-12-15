@@ -24,8 +24,7 @@ const personalSchema = new Schema(
     ],
     workExperience: [
       {
-        companyName: { type: String, required: true },
-        companyUrl: { type: String },
+        title: string,
         employmentType: {
           type: String,
           required: true,
@@ -39,7 +38,10 @@ const personalSchema = new Schema(
             'Apprenticeship',
           ],
         },
-        is_current: { type: Boolean },
+        companyName: { type: String, required: true },
+        location: string,
+        // companyUrl: { type: String },
+        // is_current: { type: Boolean },
         startDate: { type: Date, required: true },
         endDate: { type: Date, required: true },
         description: { type: String, required: true },

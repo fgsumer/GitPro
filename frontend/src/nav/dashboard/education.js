@@ -9,11 +9,11 @@ const Education = () => {
     console.log(date, dateString);
   }
   const [inputFields, setInputFields] = useState([
-    { institution: '', field: '', degree: '', date: '', date1: '' },
+    { institution: '', field: '', degree: '', date: '' },
   ]);
   const handleAddFields = () => {
     const values = [...inputFields];
-    values.push({ institution: '', field: '', degree: '', date: '', date1: '' });
+    values.push({ institution: '', field: '', degree: '', date: '' });
     setInputFields(values);
   };
 
@@ -30,10 +30,8 @@ const Education = () => {
       values[index].field = event.target.value;
     } else if (event.target.name === 'degree') {
       values[index].degree = event.target.value;
-    } else if (event.target.name === 'date') {
-      values[index].date = event.target.value;
     } else {
-      values[index].date1 = event.target.value;
+      values[index].date = event.target.value;
     }
 
     setInputFields(values);
