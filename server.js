@@ -23,6 +23,9 @@ app.use('/user', userRouter);
 const authRouter = require('./routes/loginUser'); // to login
 app.use('/auth', authRouter);
 
+const gitRouter = require('./routes/github'); // to login
+app.use('/', gitRouter);
+
 // const rootRouter = require('./routes/root'); // to list the users
 // app.use('/', rootRouter);
 
