@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const personalSchema = new Schema(
   {
+    _id: Schema.Types.ObjectId,
     name: { type: String, required: true },
     surname: { type: String, required: true },
     picture: 'string',
@@ -12,6 +13,7 @@ const personalSchema = new Schema(
     country: 'string',
     city: 'string',
     website: 'string',
+    userModel: { type: Schema.Types.ObjectId, ref: 'User' },
 
     education: [
       {

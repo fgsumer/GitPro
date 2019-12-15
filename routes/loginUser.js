@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
 // @route   GET /auth/user
 // @desc    get user data & validate user constantly
 // @access  Private
-router.get('/user', auth, (req, res) => {
+router.get('/user', (req, res) => {
   User.findById(req.user.id)
     .select('-password') // disregard the password
     .then(user => res.json(user));
