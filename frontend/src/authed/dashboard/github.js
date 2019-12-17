@@ -4,8 +4,7 @@ const GithubComponent = () => {
   const [repos, setRepos] = useState([]);
 
   const gitHub = [];
-
-  useEffect(() => {
+  const FetchButton = () => {
     axios
       .get(`https://api.github.com/users/${localStorage.getItem('username')}/repos`)
       .then(result => {
@@ -14,8 +13,7 @@ const GithubComponent = () => {
       .catch(err => {
         console.log(err);
       });
-  }, []);
-
+  };
   const ImportButton = () => {
     axios.post(
       `http://localhost:5000/user/github/${localStorage.getItem('ID')}`,
@@ -33,6 +31,15 @@ const GithubComponent = () => {
 
   return (
     <div>
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          FetchButton();
+          console.log(gitHub);
+        }}
+      >
+        <input type="submit" value="import1" />
+      </form>
       {repos.map(function(item) {
         const title = item.name;
         const description = item.description;
@@ -46,12 +53,12 @@ const GithubComponent = () => {
               <p>Name: {title}</p>
               <p>description: {description}</p>
               <p>url: {repository}</p>
-
               <input type="checkbox" onChange={handleGithubChange} />
             </form>
           </div>
         );
       })}
+
       <form
         onSubmit={event => {
           event.preventDefault();
@@ -59,7 +66,7 @@ const GithubComponent = () => {
           console.log(gitHub);
         }}
       >
-        <input type="submit" value="import" />
+        <input type="submit" value="import2" />
       </form>
     </div>
   );

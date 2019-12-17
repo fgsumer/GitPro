@@ -14,6 +14,7 @@ import LogoutComponent from './landing/logout';
 import CreateComponent from './landing/create';
 import Preview from './nav/Preview/Preview';
 import GithubComponent from './authed/dashboard/github';
+import PortfolioComponent from './authed/dashboard/portfolio';
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
@@ -32,7 +33,7 @@ function App() {
         <Route path="/create" component={CreateComponent} />
         <Route path="/preview" component={Preview} />
         <Route path="/github" component={GithubComponent} />
-
+        <Route path="/portfolio" component={PortfolioComponent} />
       </div>
     </Router>
   );
