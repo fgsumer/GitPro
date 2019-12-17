@@ -17,14 +17,14 @@ const Dashboard = () => {
     console.log('click', e);
   }
 
- const handleOnclick = () => {
+  const handleOnclick = () => {
     //  axios.post("") //it will send data to backend/mongodb after modifying it
 
     console.log('inputs', inputs);
     console.log('ref', ref);
 
     axios
-      .post('http://localhost:5000/personal/add', inputs, {
+      .post(`http://localhost:5000/user/${localStorage.getItem('ID')}`, inputs, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',
