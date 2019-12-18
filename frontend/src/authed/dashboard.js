@@ -19,8 +19,6 @@ const Dashboard = () => {
   }
 
   const handleOnclick = () => {
-    //  axios.post("") //it will send data to backend/mongodb after modifying it
-
     console.log('inputs', inputs);
     console.log('ref', ref);
 
