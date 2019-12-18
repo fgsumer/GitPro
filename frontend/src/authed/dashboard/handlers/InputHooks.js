@@ -68,7 +68,6 @@ const useSignUpForm = (initialValues, callback) => {
     handleSubmit,
     handleInputChange,
     inputs,
-    ref,
     onEduDateChange,
     onExpDateChange,
   };

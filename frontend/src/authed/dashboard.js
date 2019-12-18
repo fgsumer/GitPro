@@ -90,7 +90,6 @@ const Dashboard = () => {
 
   const {
     inputs,
-    ref,
     handleInputChange,
     handleSubmit,
     onEduDateChange,
