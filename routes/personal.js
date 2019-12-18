@@ -30,13 +30,15 @@ router.route('/add').post((req, res) => {
   const location = req.body.location;
   const employmentType = req.body.employmentType;
   const jobDescription = req.body.jobDescription;
-  const experienceDate = req.body.experienceDate;
+  const workStartDate = req.body.workStartDate;
+  const workEndDate = req.body.workEndDate;
   const school = req.body.school;
   const degree = req.body.degree;
   const fieldOfStudy = req.body.fieldOfStudy;
   const grade = req.body.grade;
   const educationDescription = req.body.educationDescription;
-  const educationDate = req.body.educationDate;
+  const educationStartDate = req.body.educationStartDate;
+  const educationEndDate = req.body.educationEndDate;
   const skills = req.body.skills;
   const gitHub = req.body.gitHub;
   const project = req.body.project;
@@ -55,13 +57,15 @@ router.route('/add').post((req, res) => {
     location,
     employmentType,
     jobDescription,
-    experienceDate,
+    workStartDate,
+    workEndDate,
     school,
     degree,
     fieldOfStudy,
     grade,
     educationDescription,
-    educationDate,
+    educationStartDate,
+    educationEndDate,
     skills,
     gitHub,
     project,
@@ -103,10 +107,12 @@ router.route('/update/:id').post((req, res) => {
       info.fieldOfStudy = req.body.fieldOfStudy;
       info.grade = req.body.grade;
       info.educationDescription = req.body.educationDescription;
-      info.educationDate = req.body.educationDate;
+      info.educationStartDate = req.body.educationStartDate;
+      info.educationEndDate = req.body.educationEndDate;
       info.skills = req.body.skills;
       info.gitHub = req.body.gitHub;
       info.project = req.body.project;
+
       info
         .save()
         .then(() => res.json('Personal updated!'))

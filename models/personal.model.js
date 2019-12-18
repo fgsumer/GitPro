@@ -11,6 +11,21 @@ const personalSchema = new Schema(
     email: { type: String },
     country: { type: String },
     city: { type: String },
+    languages: [
+      {
+        language: { type: String },
+        languageFluencyLevel: {
+          type: String,
+          enum: [
+            'Native Speaker',
+            'Fluent',
+            'Proficient',
+            'Intermediate',
+            'Basic Communication Skills',
+          ],
+        },
+      },
+    ],
     website: { type: String },
 
     education: [
@@ -20,12 +35,13 @@ const personalSchema = new Schema(
         fieldOfStudy: { type: String },
         grade: { type: String },
         educationDescription: { type: String },
-        educationDate: { type: String },
+        educationStartDate: { type: String },
+        educationEndDate: { type: String },
       },
     ],
     workExperience: [
       {
-        work_title: { type: String },
+        workTitle: { type: String },
         company: { type: String },
         companyUrl: { type: String },
         location: { type: String },
@@ -43,7 +59,8 @@ const personalSchema = new Schema(
         },
         is_current: { type: Boolean },
         jobDescription: { type: String },
-        experienceDate: { type: String },
+        workStartDate: { type: String },
+        workEndDate: { type: String },
       },
     ],
     skills: { type: String },
@@ -53,30 +70,15 @@ const personalSchema = new Schema(
         date: { type: Date },
       },
     ],
-    languages: [
-      {
-        language: { type: String },
-        fluencyLevelOption: {
-          type: String,
-          enum: [
-            'Native Speaker',
-            'Fluent',
-            'Proficient',
-            'Intermediate',
-            'Basic Communication Skills',
-          ],
-        },
-      },
-    ],
 
     gitHub: [
       {
-        title: { type: String },
-        photo: { type: String },
+        githubTitle: { type: String },
+        githubPhoto: { type: String },
         video: { type: String },
         repository: { type: String },
         deployedSite: { type: String },
-        description: { type: String },
+        githubDescription: { type: String },
       },
     ],
     project: [
