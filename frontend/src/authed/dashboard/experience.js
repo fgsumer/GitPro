@@ -5,8 +5,8 @@ const { Title } = Typography;
 
 const { RangePicker } = DatePicker;
 
-const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange }) => {
-  const [inputFields, setInputFields] = useState([
+const Experience = ({ setSelected, inputs, handleSubmit, handleInputChange, onExpDateChange }) => {
+  const [inputExperience, setInputExperience] = useState([
     {
       work_title: '',
       company: '',
@@ -16,9 +16,16 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
       experienceDate: '',
     },
   ]);
+  const handleInputChangeExperience = event => {
+    event.persist();
+    const { name, value } = event.target;
+    setInputExperience(inputExperience => ({ ...inputExperience, [name]: value }));
+
+    console.log('changed experience inputs', inputExperience);
+  };
 
   const handleAddFields = () => {
-    const values = [...inputFields];
+    const values = [...inputExperience];
     values.push({
       work_title: '',
       company: '',
@@ -27,20 +34,20 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
       jobDescription: '',
       experienceDate: '',
     });
-    setInputFields(values);
+    setInputExperience(values);
   };
 
   const handleRemoveFields = index => {
-    const values = [...inputFields];
+    const values = [...inputExperience];
     values.splice(index, 1);
-    setInputFields(values);
+    setInputExperience(values);
   };
 
   return (
     <div>
       <Title level={3}>Work experience</Title>
-      <Form onSubmit={handleSubmit} autoComplete="off">
-        {inputFields.map((inputField, index) => (
+      <Form autoComplete="off">
+        {inputExperience.map((inputField, index) => (
           <Fragment key={`${inputField}~${index}`}>
             <Form.Item label="Title">
               <Input
@@ -83,11 +90,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onDateChange}
-                name="experienceDate"
-                value={inputs.experienceDate}
-              />
+              <RangePicker placeholder="" name="experienceDate" onChange={onExpDateChange} />
             </Form.Item>
             <Form.Item>
               <Button
@@ -106,8 +109,8 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onDateChange
           </Button>
         </Form.Item>
         <Form.Item>
-          <Button type="primary">
-            {/* <a href="./experience"> */}
+          <Button type="primary" onClick={() => (setSelected = '4')}>
+            {/* <a href="./skills"> */}
             Save
             {/* </a> */}
           </Button>

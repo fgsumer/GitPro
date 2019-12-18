@@ -22,7 +22,7 @@ const useSignUpForm = (initialValues, callback) => {
     if (event) {
       event.preventDefault();
       //event.persist();
-      console.log('last values', ref, inputs);
+      console.log('last values', inputs);
       callback();
     }
   };
@@ -38,9 +38,30 @@ const useSignUpForm = (initialValues, callback) => {
     console.log('ref', ref);
   };
 
-  function onDateChange(date, dateString) {
-    console.log(date, dateString);
-    setInputs(inputs => ({ ...inputs, [this.name]: this.value.dateString }));
+  /* const onDateChange = (event, dateString) => {
+    console.log(dateString);
+    setInputs(inputs => ({
+      ...inputs,
+      [range.name]: range.dateString,
+    }));
+  }; */
+
+  function onEduDateChange(date, educationDate) {
+    console.log(date, educationDate);
+    const educationStartDate = educationDate[0];
+    const educationEndDate = educationDate[1];
+
+    setInputs(inputs => ({ ...inputs, educationStartDate }));
+    setInputs(inputs => ({ ...inputs, educationEndDate }));
+  }
+
+  function onExpDateChange(date, experienceDate) {
+    console.log(date, experienceDate);
+    const workStartDate = experienceDate[0];
+    const workEndDate = experienceDate[1];
+
+    setInputs(inputs => ({ ...inputs, workStartDate }));
+    setInputs(inputs => ({ ...inputs, workEndDate }));
   }
 
   return {
@@ -48,7 +69,8 @@ const useSignUpForm = (initialValues, callback) => {
     handleInputChange,
     inputs,
     ref,
-    onDateChange,
+    onEduDateChange,
+    onExpDateChange,
   };
 };
 export default useSignUpForm;

@@ -4,7 +4,7 @@ import { Form, Input, Button, DatePicker, Typography, Icon } from 'antd';
 const { Title } = Typography;
 const { RangePicker } = DatePicker;
 
-const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) => {
+const Education = ({ setSelected, inputs, handleSubmit, handleInputChange, onEduDateChange }) => {
   const [inputFields, setInputFields] = useState([
     {
       school: '',
@@ -81,11 +81,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onDateChange}
-                name="educationDate"
-                value={inputs.educationDate}
-              />
+              <RangePicker onChange={onEduDateChange} name="educationDate" />
             </Form.Item>
             <Form.Item>
               <Button
@@ -104,8 +100,8 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onDateChange }) =>
           </Button>
         </Form.Item>
         <Form.Item>
-          <Button type="primary submit">
-            {/* <a href="./skills"> */}
+          <Button type="primary submit" onClick={() => (setSelected = '3')}>
+            {/* <a href="./experience"> */}
             Save
             {/* </a> */}
           </Button>

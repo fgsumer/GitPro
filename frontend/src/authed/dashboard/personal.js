@@ -3,7 +3,7 @@ import React from 'react';
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
 
-const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange }) => {
+const Personal = ({ setSelected, inputs, handleSubmit, handleInputChange }) => {
   console.log('personal inputs', inputs);
 
   return (
@@ -22,21 +22,21 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
         <Form.Item label="About you">
           <Input placeholder="" name="about" onChange={handleInputChange} value={inputs.about} />
         </Form.Item>
-        <Form.Item label="Email">
-          <Input
-            placeholder=""
-            name="email"
-            onChange={handleInputChange}
-            value={inputs.email}
-            required
-          />
-        </Form.Item>
         <Form.Item label="Telephone">
           <Input
             placeholder=""
             name="telephone"
             onChange={handleInputChange}
             value={inputs.telephone}
+          />
+        </Form.Item>
+        <Form.Item label="Email">
+          <Input
+            placeholder=""
+            name="email1"
+            onChange={handleInputChange}
+            value={inputs.email1}
+            required
           />
         </Form.Item>
         <Form.Item label="Country">
@@ -58,6 +58,14 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
             value={inputs.language}
           />
         </Form.Item>
+        <Form.Item label="Language Fluency">
+          <Input
+            placeholder=""
+            name="languageFluencyLevel"
+            onChange={handleInputChange}
+            value={inputs.languageFluencyLevel}
+          />
+        </Form.Item>
         <Form.Item label="Website">
           <Input
             placeholder=""
@@ -68,7 +76,7 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
         </Form.Item>
         <Form.Item>
           <Button type="primary" onClick={() => (setSelected = '2')}>
-            {/* <a href="./experience"> */}
+            {/* <a href="./education"> */}
             Save
             {/* </a> */}
           </Button>

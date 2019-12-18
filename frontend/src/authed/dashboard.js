@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,8 +24,55 @@ const Dashboard = () => {
     console.log('inputs', inputs);
     console.log('ref', ref);
 
+    /*const postInputs = {
+      name: inputs.name,
+      about: inputs.about,
+      telephone: inputs.telephone,
+      email: inputs.email,
+      country: inputs.country,
+      city: inputs.city,
+      languages: { language: inputs.language, languageFluencyLevel: inputs.languageFluencyLevel },
+      website: inputs.website,
+
+      education: {
+        school: inputs.school,
+        degree: inputs.degree,
+        fieldOfStudy: inputs.fieldOfStudy,
+        grade: inputs.grade,
+        educationDescription: inputs.educationDescription,
+        educationStartDate: inputs.educationStartDate,
+        educationEndDate: inputs.educationEndDate,
+      },
+      workExperience: {
+        workTitle: inputs.workTitle,
+        company: inputs.company,
+        companyUrl: inputs.companyUrl,
+        location: inputs.location,
+        employmentType: inputs.employmentType,
+        jobDescription: inputs.jobDescription,
+        workStartDate: inputs.workStartDate,
+        workEndDate: inputs.workEndDate,
+      },
+
+      skills: inputs.skills,
+      certificate: {
+        certificateName: inputs.certificateName,
+        date: inputs.date,
+      },
+
+      gitHub: {
+        githubTitle: inputs.githubTitle,
+        githubPhoto: inputs.githubPhoto,
+        video: inputs.video,
+        repository: inputs.repository,
+        deployedSite: inputs.deployedSite,
+        githubDescription: inputs.githubDescription,
+      },
+    };*/
+
     axios
       .post('http://localhost:5000/personal/add', inputs, {
+        //inputs will change to postInputs
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'Content-Type': 'application/json',
@@ -41,33 +88,52 @@ const Dashboard = () => {
     //alert('Successfully saved!');
   };
 
-  const { ref, inputs, handleInputChange, handleSubmit, onDateChange } = useSignUpForm(
+  const {
+    inputs,
+    ref,
+    handleInputChange,
+    handleSubmit,
+    onEduDateChange,
+    onExpDateChange,
+  } = useSignUpForm(
     {
       name: '',
       about: '',
-      email: '',
+      picture: '',
       telephone: '',
+      email1: '',
       country: '',
       city: '',
       language: '',
+      languageFluencyLevel: '',
       website: '',
-      workTitle: '',
-      company: '',
-      location: '',
-      employmentType: '',
-      jobDescription: '',
-      experienceDate: '',
       school: '',
       degree: '',
       fieldOfStudy: '',
       grade: '',
       educationDescription: '',
-      educationDate: '',
+      educationStartDate: '',
+      educationEndDate: '',
+      workTitle: '',
+      company: '',
+      companyUrl: '',
+      location: '',
+      employmentType: '',
+      jobDescription: '',
+      workStartDate: '',
+      workEndDate: '',
       skills: '',
+      certificateName: '',
+      date: '',
+      githubTitle: '',
+      githubPhoto: '',
+      video: '',
+      repository: '',
+      deployedSite: '',
+      githubDescription: '',
     },
     handleOnclick,
   );
-  //console.log('dash inputs', inputs);
 
   /* useEffect(() => {
     document.title = `You clicked ${count} times`;
@@ -83,56 +149,52 @@ const Dashboard = () => {
             <Link to="/auth/dashboard/personal">Personal Info</Link>
           </Menu.Item>
           <Menu.Item key="2">
-            <Link to="/auth/dashboard/experience">Experience</Link>
-          </Menu.Item>
-          <Menu.Item key="3">
             <Link to="/auth/dashboard/education">Education</Link>
           </Menu.Item>
-          {/* <Menu.Item><Link to="/auth/dashboard/projects">Projects</Link></Menu.Item> */}
+          <Menu.Item key="3">
+            <Link to="/auth/dashboard/experience">Experience</Link>
+          </Menu.Item>
           <Menu.Item key="4">
             <Link to="/auth/dashboard/skills">Skills</Link>
           </Menu.Item>
+          {/* <Menu.Item><Link to="/auth/dashboard/projects">Projects</Link></Menu.Item> */}
         </Menu>
         <Switch>
           <Route path="/auth/dashboard/personal">
             <Personal
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-            />
-          </Route>
-          <Route path="/auth/dashboard/experience">
-            <Experience
-              setSelected={setSelected}
-              inputs={inputs}
-              ref={ref}
-              handleInputChange={handleInputChange}
-              handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
             />
           </Route>
           <Route path="/auth/dashboard/education">
             <Education
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
-              onDateChange={onDateChange}
+              onEduDateChange={onEduDateChange}
             />
           </Route>
-          {/* <Route path="/auth/dashboard/projects"><Projects /></Route> */}
+          <Route path="/auth/dashboard/experience">
+            <Experience
+              setSelected={setSelected}
+              inputs={inputs}
+              handleInputChange={handleInputChange}
+              handleSubmit={handleSubmit}
+              onExpDateChange={onExpDateChange}
+            />
+          </Route>
           <Route path="/auth/dashboard/skills">
             <Skills
               setSelected={setSelected}
               inputs={inputs}
-              ref={ref}
               handleInputChange={handleInputChange}
               handleSubmit={handleSubmit}
             />
           </Route>
+          {/* <Route path="/auth/dashboard/projects"><Projects /></Route> */}
         </Switch>
       </div>
     </Router>
