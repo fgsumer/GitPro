@@ -7,6 +7,7 @@ const Projects = () => {
       <Link to="/auth/github">
         <button>Import your repos from GitHub</button>
       </Link>
+      <br />
       <Link to="/auth/portfolio">
         <button>Edit your repos</button>
       </Link>

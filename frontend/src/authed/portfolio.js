@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 import axios from 'axios';
 
 const Portfolio = () => {
@@ -33,6 +35,10 @@ const Portfolio = () => {
         },
       },
     );
+  };
+  let history = useHistory();
+  const handleClick = () => {
+    history.push('/preview');
   };
 
   const handleTitleChange = e => {
@@ -113,6 +119,11 @@ const Portfolio = () => {
         }}
       >
         <input type="submit" value="Submit" />
+        return (
+        <button type="button" onClick={handleClick}>
+          Go to Preview
+        </button>
+        );
       </form>
     </div>
   );

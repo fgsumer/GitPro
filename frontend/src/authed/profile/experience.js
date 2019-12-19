@@ -49,7 +49,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
                 value={inputs.workTitle}
               />
             </Form.Item>
-            <Form.Item label="companyName">
+            <Form.Item label="Company Name">
               <Input
                 placeholder=""
                 name="companyName"
@@ -57,7 +57,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
                 value={inputs.companyName}
               />
             </Form.Item>
-            <Form.Item label="companyLocation">
+            <Form.Item label="Company Location">
               <Input
                 placeholder=""
                 name="companyLocation"
@@ -82,10 +82,7 @@ const Experience = ({ inputs, ref, handleSubmit, handleInputChange, onExpDateCha
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onExpDateChange}
-                name="experienceDate"
-              />
+              <RangePicker onChange={onExpDateChange} name="experienceDate" />
             </Form.Item>
             <Form.Item>
               <Button

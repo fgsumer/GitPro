@@ -6,4 +6,5 @@ node_modules
 yarn-error.log
 reports/
 .env 
+debug.log
 

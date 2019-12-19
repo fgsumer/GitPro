@@ -38,7 +38,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
       <Form onSubmit={handleSubmit} autoComplete="off">
         {inputFields.map((inputField, index) => (
           <Fragment key={`${inputField}~${index}`}>
-            <Form.Item label="institution">
+            <Form.Item label="Institution">
               <Input
                 placeholder=""
                 name="institution"
@@ -71,10 +71,7 @@ const Education = ({ inputs, handleSubmit, handleInputChange, onEduDateChange })
               />
             </Form.Item>
             <Form.Item label="Date">
-              <RangePicker
-                onChange={onEduDateChange}
-                name="educationDate"
-              />
+              <RangePicker onChange={onEduDateChange} name="educationDate" />
             </Form.Item>
             <Form.Item>
               <Button

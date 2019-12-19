@@ -20,7 +20,7 @@ const Personal = ({ setSelected, inputs, ref, handleSubmit, handleInputChange })
             required
           />
         </Form.Item>
-        <Form.Item label="phone">
+        <Form.Item label="Telephone Number">
           <Input placeholder="" name="phone" onChange={handleInputChange} value={inputs.phone} />
         </Form.Item>
         <Form.Item label="Country">
