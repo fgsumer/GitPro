@@ -30,6 +30,9 @@ app.use('/auth', authRouter);
 const personalRouter = require('./routes/personal');
 app.use('/personal', personalRouter);
 
+const ImageRouter = require('./routes/imageRouter');
+app.use('/image', ImageRouter);
+app.use(express.static('public'));
 // const certificateRouter = require('./routes/certificate');
 // app.use('/certificate', certificateRouter);
 // // console.log that your server is up and running
@@ -50,3 +53,28 @@ app
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .listen(port, () => console.log(`Listening on port ${port}`));
+
+// const multer = require('multer');
+
+// app.use(express.static('public'));
+
+// var storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'public/images/uploads');
+//   },
+//   filename: (req, file, cb) => {
+//     cb(null, Date.now() + '-' + file.originalname);
+//   },
+// });
+
+// const upload = multer({ storage });
+
+// app.use(cors());
+
+// app.post('/upload', upload.single('image'), (req, res) => {
+//   if (req.file)
+//     res.json({
+//       imageUrl: `images/uploads/${req.file.filename}`,
+//     });
+//   else res.status('409').json('No Files to Upload.');
+// });

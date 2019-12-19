@@ -14,6 +14,7 @@ import CreateComponent from './landing/create';
 import Preview from '../src/landing/Preview/Preview';
 import GithubComponent from './authed/github';
 import PortfolioComponent from './authed/portfolio';
+import UploadPhoto from './authed/profile/uploadPhoto';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const firebaseAppAuth = firebaseApp.auth();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/preview" component={Preview} />
         <Route path="/github" component={GithubComponent} />
         <Route path="/portfolio" component={PortfolioComponent} />
+        <Route path="/upload" component={UploadPhoto} />
       </div>
     </Router>
   );

@@ -1,4 +1,5 @@
 import React from 'react';
+import UploadPhoto from './uploadPhoto';
 
 import { Form, Input, Button, Typography } from 'antd';
 const { Title } = Typography;
