@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -9,7 +10,13 @@ require('dotenv').config();
 
 app.use(cors());
 app.use(express.json());
-
+router.route('/img_data').post(upload.single('file'), function(req, res) {
+  var new_img = new Img();
+  new_img.img.data = fs.readFileSync(req.file.path);
+  new_img.img.contentType = 'image/jpeg';
+  new_img.save();
+  res.json({ message: 'New image added to the db!' });
+});
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 const connection = mongoose.connection;

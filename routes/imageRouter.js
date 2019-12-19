@@ -2,7 +2,7 @@ var express = require('express');
 
 var ImageRouter = express.Router();
 const multer = require('multer');
-const Personal = require('../models/personal.model');
+const User = require('../models/user.model');
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -35,12 +35,12 @@ const upload = multer({
     using multer and creates a reference to the 
     file
 */
+
 ImageRouter.route('/uploadmulter').post(upload.single('imageData'), (req, res, next) => {
   console.log(req.body);
 
-  const newPersonal = new Personal({
+  const newImage = new User({
     imageName: req.body.imageName,
-    imageData: req.file.path,
   });
 
   newImage

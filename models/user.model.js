@@ -7,7 +7,7 @@ const userSchema = new Schema(
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    img: { type: String },
+    img: { data: Buffer, contentType: String },
     imageName: { type: String },
     imageData: { type: String },
     picture: { type: String },
@@ -33,7 +33,7 @@ const userSchema = new Schema(
     jobDescription: { type: String },
 
     skills: { type: String },
-
+    photo: { type: String },
     gitHub: [
       {
         title: { type: String },
