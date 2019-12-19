@@ -32,7 +32,7 @@ app.use('/personal', personalRouter);
 
 const ImageRouter = require('./routes/imageRouter');
 app.use('/image', ImageRouter);
-app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
 // const certificateRouter = require('./routes/certificate');
 // app.use('/certificate', certificateRouter);
 // // console.log that your server is up and running
