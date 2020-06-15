@@ -8,7 +8,7 @@ GitPro is a web application by which especially HackYourFuture students, new dev
 ## 🛠 Installation and Set up
 * Clone the repository 
 ```bash
-$ git clone https://github.com/fgsumer/GitPro.git
+$ git clone https://github.com/fgsumer/gitpro.git
 ```
 * Install the dependencies on both root and front end directories
 ```bash 
